@@ -1,0 +1,23 @@
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: 4rem 1rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .portfolio-card {
+    height: 300px;
+  }
+
+  .card-overlay {
+    padding: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+}

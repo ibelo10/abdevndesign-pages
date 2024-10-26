@@ -1,0 +1,8 @@
+/* Glow Effect Integration */
+.portfolio-card.glow-effect:hover {
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3);
+}
+
+.filter-btn.glow-effect:hover {
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.2);
+}

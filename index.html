@@ -3,322 +3,188 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AB Development & Design</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;800&display=swap");
-
       body {
         margin: 0;
         padding: 0;
-        font-family: "Raleway", sans-serif;
-        height: 100vh;
+        overflow-x: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow: hidden;
-      }
-
-      .full-mountain-image {
-        width: 100%;
-        height: 100vh;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        overflow: hidden;
         min-height: 100vh;
-        cursor: pointer;
+        background: url("YOUR_BACKGROUND_IMAGE_URL") no-repeat center center
+          fixed; /* Background image for container */
+        background-size: cover;
+        font-family: "Open Sans", sans-serif;
+        color: #f0f4f8;
       }
 
-      .Header-content {
-        text-align: center;
+      .footer {
         position: relative;
-        z-index: 10;
+        padding: 60px 20px;
+        text-align: center;
+        overflow: visible;
+        width: 100%;
+        max-width: 1200px;
+        min-height: 250px;
+        border-radius: 8px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        width: 100%;
-        padding: 0 20px;
-        box-sizing: border-box;
-        pointer-events: auto;
+        gap: 20px;
       }
 
-      .Header-hero {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .Header-hero h1 {
-        font-size: clamp(2rem, 5vw, 4rem);
-        font-weight: 800;
-        color: white;
-        cursor: pointer;
-        transition: all 0.5s ease;
-        letter-spacing: 1px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        position: relative;
-        margin: 0;
-        padding: 0;
-        white-space: nowrap;
-        overflow: visible;
-      }
-
-      .Header-hero h1:after {
-        content: "";
+      .footer .bubbles {
         position: absolute;
-        width: 0;
-        height: 3px;
-        bottom: -10px;
-        left: 50%;
-        background: #3498db;
-        transition: all 0.5s ease;
-        transform: translateX(-50%);
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%; /* Full height for shooting stars */
+        overflow: visible;
+        z-index: 0;
       }
 
-      .Header-hero h1:hover {
-        color: #3498db;
-        text-shadow: 3px 3px 6px rgba(52, 152, 219, 0.3);
+      .footer .shooting-star {
+        position: absolute;
+        top: var(--startY, 0);
+        left: var(--startX, 0);
+        width: 2px;
+        height: 100px;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0)
+        ); /* Adjusted angle for trail */
+        border-radius: 50%;
+        transform: rotate(45deg); /* Adjusted to match the new direction */
+        animation: shooting-star-move var(--time, 2s) ease-out infinite
+          var(--delay, 0s);
       }
 
-      .Header-hero h1:hover:after {
-        width: 100%;
-      }
-
-      .scrolling-text {
+      .footer .content {
         position: relative;
-        font-size: 1.8rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.9);
-        margin-top: 40px;
-        height: 45px;
-        overflow: hidden;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        z-index: 1;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-        min-height: 90px;
+        gap: 15px;
       }
 
-      .static-text {
-        font-weight: 400;
-        white-space: nowrap;
-      }
-
-      .scrolling-text__container {
-        font-weight: 400;
-        overflow: hidden;
-        height: 45px;
-        position: relative;
-        display: inline-block;
-        padding: 0 5px;
-        border-radius: 5px;
-        min-width: 200px;
-      }
-
-      .scrolling-text__list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        position: relative;
-        text-align: center;
-        animation: scroll 12s ease-in-out infinite;
-      }
-
-      .scrolling-text__item {
-        height: 45px;
-        line-height: 45px;
-        display: block;
-        transition: all 0.5s ease;
-      }
-
-      .scrolling-text__item:hover {
-        color: #3498db;
-        transform: scale(1.05);
-      }
-
-      .Button {
-        display: inline-block;
-        padding: 1rem 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        color: white;
-        font-size: 1.2rem;
+      .footer .content h3 {
+        font-size: 2em; /* Increased font size for heading */
+        color: #f0f4f8;
         font-weight: bold;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        margin-top: 40px;
+        margin: 0;
+      }
+
+      .footer .content p,
+      .footer .content a {
+        font-size: 1.2em; /* Larger font size for text and links */
+        color: #d1d5db;
+        font-weight: 500;
         text-decoration: none;
-        font-family: "Raleway", sans-serif;
+        margin: 0 10px;
       }
 
-      .Button:hover {
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 12px 40px rgba(31, 38, 135, 0.6);
-        transform: translateY(-2px);
+      .footer .content a {
+        color: #93c5fd;
       }
 
-      @keyframes scroll {
-        0%,
-        20% {
-          transform: translateY(0);
+      .footer .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .footer .newsletter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .footer .newsletter input[type="email"] {
+        padding: 12px;
+        border-radius: 5px;
+        border: 1px solid #94a3b8;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #0f172a;
+        font-size: 1em; /* Increased font size for input */
+      }
+
+      .footer .newsletter button {
+        padding: 12px 25px;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 1em; /* Increased font size for button */
+        cursor: pointer;
+      }
+
+      /* Keyframes for shooting star movement */
+      @keyframes shooting-star-move {
+        0% {
+          transform: translateY(0) translateX(0) rotate(45deg);
           opacity: 1;
-        }
-        22%,
-        23% {
-          opacity: 0.6;
-        }
-        25%,
-        45% {
-          transform: translateY(-45px);
-          opacity: 1;
-        }
-        47%,
-        48% {
-          opacity: 0.6;
-        }
-        50%,
-        70% {
-          transform: translateY(-90px);
-          opacity: 1;
-        }
-        72%,
-        73% {
-          opacity: 0.6;
-        }
-        75%,
-        95% {
-          transform: translateY(-135px);
-          opacity: 1;
-        }
-        97%,
-        98% {
-          opacity: 0.6;
         }
         100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .Header-hero h1 {
-          font-size: 2.5rem;
-          letter-spacing: 0.5px;
-        }
-
-        .scrolling-text {
-          font-size: 1.4rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .Header-hero h1 {
-          font-size: 2rem;
-          white-space: normal; /* Change this from 'nowrap' to 'normal' */
-        }
-
-        .scrolling-text {
-          font-size: 1.2rem;
-        }
-
-        .Button {
-          font-size: 1rem;
-          padding: 0.8rem 1.6rem;
+          transform: translateY(300px) translateX(600px) rotate(45deg); /* Move from top-left to bottom-right */
+          opacity: 0;
         }
       }
     </style>
   </head>
   <body>
-    <div class="full-mountain-image">
-      <div class="Header-content">
-        <div class="Header-hero">
-          <h1>AB Development & Design</h1>
-        </div>
-
-        <div class="scrolling-text">
-          <span class="static-text">We</span>
-          <div class="scrolling-text__container">
-            <ul class="scrolling-text__list">
-              <li class="scrolling-text__item">create digital experiences</li>
-              <li class="scrolling-text__item">build innovative solutions</li>
-              <li class="scrolling-text__item">design beautiful interfaces</li>
-              <li class="scrolling-text__item">transform your vision</li>
-            </ul>
-          </div>
-          <span class="static-text">with passion</span>
-        </div>
-
-        <a href="https://www.abdevndesign.com/portfolio" class="Button"
-          >VIEW PORTFOLIO</a
-        >
-      </div>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
-
-    <script>
-      $(document).ready(function () {
-        // Check if WebGL is supported
-        function isWebGLSupported() {
-          try {
-            var canvas = document.createElement("canvas");
-            return !!(
-              window.WebGLRenderingContext &&
-              (canvas.getContext("webgl") ||
-                canvas.getContext("experimental-webgl"))
+    <footer class="footer">
+      <!-- Shooting stars background -->
+      <div class="bubbles">
+        <script>
+          // JavaScript to generate shooting stars
+          for (let i = 0; i < 15; i++) {
+            const shootingStar = document.createElement("div");
+            shootingStar.className = "shooting-star";
+            shootingStar.style.setProperty(
+              "--startX",
+              `${Math.random() * 100}%`
             );
-          } catch (e) {
-            return false;
+            shootingStar.style.setProperty(
+              "--startY",
+              `${Math.random() * -50}px`
+            );
+            shootingStar.style.setProperty(
+              "--time",
+              `${1.5 + Math.random() * 1.5}s`
+            ); // Random duration for variety
+            shootingStar.style.setProperty("--delay", `${Math.random() * 5}s`); // Random delay for staggered effect
+            document.querySelector(".bubbles").appendChild(shootingStar);
           }
-        }
+        </script>
+      </div>
 
-        // Wait for all elements to load
-        $(window).on("load", function () {
-          try {
-            if (!isWebGLSupported()) {
-              console.log("WebGL is not supported in your browser.");
-              return;
-            }
-
-            // Initialize ripples with error handling
-            $(".full-mountain-image")
-              .ripples({
-                resolution: 512,
-                dropRadius: 20,
-                perturbance: 0.04,
-                interactive: true,
-                crossOrigin: "",
-              })
-              .on("error", function (e, err) {
-                console.error("Ripples error: ", err);
-              });
-
-            // Handle window resize
-            var resizeTimeout;
-            $(window).on("resize", function () {
-              clearTimeout(resizeTimeout);
-              resizeTimeout = setTimeout(function () {
-                try {
-                  $(".full-mountain-image").ripples("updateSize");
-                } catch (e) {
-                  console.error("Resize error: ", e);
-                }
-              }, 100);
-            });
-          } catch (e) {
-            console.error("Initialization error: ", e);
-          }
-        });
-      });
-    </script>
+      <!-- Footer content -->
+      <div class="content">
+        <h3>Stay Connected</h3>
+        <p>Subscribe to our newsletter for the latest updates and offers.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </div>
+        <div class="links">
+          <a href="https://www.abdevndesign.com/about">About Us</a>
+          <a href="https://www.abdevndesign.com/services">Services</a>
+          <a href="https://www.abdevndesign.com/pricingpackages"
+            >Pricing Packages</a
+          >
+          <a href="https://www.abdevndesign.com/portfolio">Portfolio</a>
+          <a href="https://www.abdevndesign.com/privacy-policy"
+            >Privacy Policy</a
+          >
+        </div>
+        <p>&copy; 2024 AB Dev N Trade. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

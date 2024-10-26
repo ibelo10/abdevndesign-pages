@@ -1,0 +1,179 @@
+/* Enhanced Submenu Base Styles */
+.sub-menu {
+  position: absolute;
+  top: 7em;
+  color: var(--nav-text-secondary);
+  min-width: 27.5em;
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: 999;
+  opacity: 0;
+  padding: 1.5em;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-10px) scale(0.98);
+  border-radius: 12px;
+}
+
+/* Fluid Animation Styles */
+.sub-menu.fluid {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+}
+
+/* Showcase Grid Styles */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Glow Effect */
+.glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-effect:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow-effect:hover:before {
+  opacity: 1;
+}
+
+/* Enhanced Card Styles */
+.info-card,
+.contact-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Stats Animation */
+.project-stats span,
+.team-stats .stat {
+  display: inline-block;
+  margin-right: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-stats span,
+.info-card:hover .team-stats .stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tech Badges */
+.tech-badges .badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5em 1em;
+  border-radius: 100px;
+  margin: 0.25em;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.tech-badges .badge:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--nav-text);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Hover States */
+.sub-menu:hover {
+  transform: translateY(0) scale(1);
+}
+
+/* Menu Background Animation */
+.menu-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: linear-gradient(
+    45deg,
+    rgba(52, 152, 219, 0.05),
+    rgba(46, 204, 113, 0.05)
+  );
+  filter: blur(20px);
+  border-radius: 12px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.sub-menu:hover .menu-background {
+  opacity: 1;
+}
+
+/* Responsive Animations */
+@media (max-width: 768px) {
+  .sub-menu {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}

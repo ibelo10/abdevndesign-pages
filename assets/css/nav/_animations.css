@@ -1,0 +1,27 @@
+@keyframes clipPath {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg) scale(1);
+    top: 4.5em;
+    opacity: 1;
+  }
+}
+
+.menu-item:hover .sub-menu {
+  pointer-events: all;
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+  margin-left: 0;
+  transform: translateY(5px);
+}
+
+.menu-item:hover ~ #sub-menu-container #sub-menu-holder {
+  animation: clipPath var(--transition-speed) var(--transition-ease) 1 forwards;
+  transition: transform var(--transition-speed) var(--transition-ease),
+    opacity var(--transition-speed) var(--transition-ease),
+    clip-path var(--transition-speed) var(--transition-ease);
+  opacity: 1;
+  right: auto;
+}

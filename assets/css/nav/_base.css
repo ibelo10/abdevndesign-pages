@@ -1,0 +1,35 @@
+:root {
+  --menu-width: 37.5em;
+  --items: 4;
+  --item-width: calc(var(--menu-width) / var(--items));
+
+  /* Colors */
+  --nav-bg: rgba(17, 17, 17, 0.95);
+  --nav-text: rgba(255, 255, 255, 0.9);
+  --nav-text-secondary: rgba(255, 255, 255, 0.6);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-highlight: rgba(255, 255, 255, 0.07);
+
+  /* Transitions */
+  --transition-speed: 0.25s;
+  --transition-ease: ease-out;
+}
+
+nav#menu {
+  width: var(--menu-width);
+  display: flex;
+  transform-style: preserve-3d;
+  justify-content: space-evenly;
+  position: fixed;
+  z-index: 1000;
+  margin: 0px auto;
+  perspective: 2000px;
+  flex-wrap: wrap;
+  top: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 0.5em;
+}

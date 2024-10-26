@@ -1,0 +1,100 @@
+/* Icon Box Base Styles */
+.menu-item .icon-box {
+  float: left;
+  width: 100%;
+  margin: 0;
+  height: 4em;
+  row-gap: 0;
+  line-height: 1em;
+  cursor: pointer;
+  padding: 1em;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 0.5em;
+}
+
+.menu-item .icon-box:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item .icon-box.space {
+  margin-bottom: 1.25em;
+}
+
+.menu-item .icon-box.flat {
+  height: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Icon Styles */
+.menu-item .icon {
+  color: rgb(44 70 86);
+  font-size: 1.4em;
+  margin: 0 1em 0 0;
+  float: left;
+}
+
+.menu-item .text {
+  float: left;
+  color: #9ea9af;
+}
+
+/* Icon Box Text */
+.menu-item .icon-box .text i {
+  clip-path: inset(0 100% 0 0);
+  font-size: 0.75em;
+  position: relative;
+  top: -1px;
+  transition: all 0.2s ease-out;
+}
+
+.menu-item .icon-box:hover .text i {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Gradient Icon Styles */
+.icon-box.gb .icon i:before {
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  padding-left: 1px;
+}
+
+/* Custom Gradient Colors */
+.icon-box.gb.a .icon i:before {
+  background-image: linear-gradient(45deg, #3498db 35%, #2ecc71 75%);
+}
+
+.icon-box.gb.b .icon i:before {
+  background-image: linear-gradient(45deg, #e74c3c 35%, #f1c40f 75%);
+}
+
+.icon-box.gb.c .icon i:before {
+  background-image: linear-gradient(45deg, #9b59b6 35%, #3498db 75%);
+}
+
+.icon-box.gb.d .icon i:before {
+  background-image: linear-gradient(45deg, #2ecc71 35%, #1abc9c 75%);
+}
+
+.icon-box.gb.e .icon i:before {
+  background-image: linear-gradient(45deg, #3498db 35%, #e74c3c 75%);
+}
+
+/* Large Icon Styles */
+.icon.big i {
+  font-size: 1.25em;
+  top: 0.2em;
+}
+
+/* Hover States */
+.menu-item .icon-box:hover .icon,
+.menu-item .icon-box:hover .title,
+.menu-item .icon-box:hover .sub-text {
+  color: rgb(89 110 123);
+}

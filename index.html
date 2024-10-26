@@ -3,188 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: url("YOUR_BACKGROUND_IMAGE_URL") no-repeat center center
-          fixed; /* Background image for container */
-        background-size: cover;
-        font-family: "Open Sans", sans-serif;
-        color: #f0f4f8;
-      }
-
-      .footer {
-        position: relative;
-        padding: 60px 20px;
-        text-align: center;
-        overflow: visible;
-        width: 100%;
-        max-width: 1200px;
-        min-height: 250px;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .footer .bubbles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%; /* Full height for shooting stars */
-        overflow: visible;
-        z-index: 0;
-      }
-
-      .footer .shooting-star {
-        position: absolute;
-        top: var(--startY, 0);
-        left: var(--startX, 0);
-        width: 2px;
-        height: 100px;
-        background: linear-gradient(
-          45deg,
-          rgba(255, 255, 255, 0.8),
-          rgba(255, 255, 255, 0)
-        ); /* Adjusted angle for trail */
-        border-radius: 50%;
-        transform: rotate(45deg); /* Adjusted to match the new direction */
-        animation: shooting-star-move var(--time, 2s) ease-out infinite
-          var(--delay, 0s);
-      }
-
-      .footer .content {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .footer .content h3 {
-        font-size: 2em; /* Increased font size for heading */
-        color: #f0f4f8;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      .footer .content p,
-      .footer .content a {
-        font-size: 1.2em; /* Larger font size for text and links */
-        color: #d1d5db;
-        font-weight: 500;
-        text-decoration: none;
-        margin: 0 10px;
-      }
-
-      .footer .content a {
-        color: #93c5fd;
-      }
-
-      .footer .links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-      }
-
-      .footer .newsletter {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .footer .newsletter input[type="email"] {
-        padding: 12px;
-        border-radius: 5px;
-        border: 1px solid #94a3b8;
-        background-color: rgba(255, 255, 255, 0.9);
-        color: #0f172a;
-        font-size: 1em; /* Increased font size for input */
-      }
-
-      .footer .newsletter button {
-        padding: 12px 25px;
-        background-color: #2563eb;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-weight: bold;
-        font-size: 1em; /* Increased font size for button */
-        cursor: pointer;
-      }
-
-      /* Keyframes for shooting star movement */
-      @keyframes shooting-star-move {
-        0% {
-          transform: translateY(0) translateX(0) rotate(45deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(300px) translateX(600px) rotate(45deg); /* Move from top-left to bottom-right */
-          opacity: 0;
-        }
-      }
-    </style>
+    <title>AB Development & Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
-    <footer class="footer">
-      <!-- Shooting stars background -->
-      <div class="bubbles">
-        <script>
-          // JavaScript to generate shooting stars
-          for (let i = 0; i < 15; i++) {
-            const shootingStar = document.createElement("div");
-            shootingStar.className = "shooting-star";
-            shootingStar.style.setProperty(
-              "--startX",
-              `${Math.random() * 100}%`
-            );
-            shootingStar.style.setProperty(
-              "--startY",
-              `${Math.random() * -50}px`
-            );
-            shootingStar.style.setProperty(
-              "--time",
-              `${1.5 + Math.random() * 1.5}s`
-            ); // Random duration for variety
-            shootingStar.style.setProperty("--delay", `${Math.random() * 5}s`); // Random delay for staggered effect
-            document.querySelector(".bubbles").appendChild(shootingStar);
-          }
-        </script>
-      </div>
+    <div class="full-mountain-image">
+      <div class="Header-content">
+        <div class="Header-hero">
+          <h1>AB Development & Design</h1>
+        </div>
 
-      <!-- Footer content -->
-      <div class="content">
-        <h3>Stay Connected</h3>
-        <p>Subscribe to our newsletter for the latest updates and offers.</p>
-        <div class="newsletter">
-          <input type="email" placeholder="Your email" required />
-          <button type="submit">Subscribe</button>
+        <div class="scrolling-text">
+          <span class="static-text">We</span>
+          <div class="scrolling-text__container">
+            <ul class="scrolling-text__list">
+              <li class="scrolling-text__item">create digital experiences</li>
+              <li class="scrolling-text__item">build innovative solutions</li>
+              <li class="scrolling-text__item">design beautiful interfaces</li>
+              <li class="scrolling-text__item">transform your vision</li>
+            </ul>
+          </div>
+          <span class="static-text">with passion</span>
         </div>
-        <div class="links">
-          <a href="https://www.abdevndesign.com/about">About Us</a>
-          <a href="https://www.abdevndesign.com/services">Services</a>
-          <a href="https://www.abdevndesign.com/pricingpackages"
-            >Pricing Packages</a
-          >
-          <a href="https://www.abdevndesign.com/portfolio">Portfolio</a>
-          <a href="https://www.abdevndesign.com/privacy-policy"
-            >Privacy Policy</a
-          >
-        </div>
-        <p>&copy; 2024 AB Dev N Trade. All rights reserved.</p>
+
+        <a href="https://www.abdevndesign.com/portfolio" class="Button"
+          >VIEW PORTFOLIO</a
+        >
       </div>
-    </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

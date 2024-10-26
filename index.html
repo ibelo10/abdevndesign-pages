@@ -4,18 +4,245 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AB Development & Design</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Link to your CSS if applicable -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;800&display=swap");
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .full-mountain-image {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        overflow: hidden;
+        min-height: 100vh;
+        cursor: pointer;
+      }
+
+      .Header-content {
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        pointer-events: auto;
+      }
+
+      .Header-hero {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .Header-hero h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 800;
+        color: white;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        position: relative;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        overflow: visible;
+      }
+
+      .Header-hero h1:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: -10px;
+        left: 50%;
+        background: #3498db;
+        transition: all 0.5s ease;
+        transform: translateX(-50%);
+      }
+
+      .Header-hero h1:hover {
+        color: #3498db;
+        text-shadow: 3px 3px 6px rgba(52, 152, 219, 0.3);
+      }
+
+      .Header-hero h1:hover:after {
+        width: 100%;
+      }
+
+      .scrolling-text {
+        position: relative;
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.9);
+        margin-top: 40px;
+        height: 45px;
+        overflow: hidden;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        min-height: 90px;
+      }
+
+      .static-text {
+        font-weight: 400;
+        white-space: nowrap;
+      }
+
+      .scrolling-text__container {
+        font-weight: 400;
+        overflow: hidden;
+        height: 45px;
+        position: relative;
+        display: inline-block;
+        padding: 0 5px;
+        border-radius: 5px;
+        min-width: 200px;
+      }
+
+      .scrolling-text__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: relative;
+        text-align: center;
+        animation: scroll 12s ease-in-out infinite;
+      }
+
+      .scrolling-text__item {
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        transition: all 0.5s ease;
+      }
+
+      .scrolling-text__item:hover {
+        color: #3498db;
+        transform: scale(1.05);
+      }
+
+      .Button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        margin-top: 40px;
+        text-decoration: none;
+        font-family: "Raleway", sans-serif;
+      }
+
+      .Button:hover {
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 12px 40px rgba(31, 38, 135, 0.6);
+        transform: translateY(-2px);
+      }
+
+      @keyframes scroll {
+        0%,
+        20% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        22%,
+        23% {
+          opacity: 0.6;
+        }
+        25%,
+        45% {
+          transform: translateY(-45px);
+          opacity: 1;
+        }
+        47%,
+        48% {
+          opacity: 0.6;
+        }
+        50%,
+        70% {
+          transform: translateY(-90px);
+          opacity: 1;
+        }
+        72%,
+        73% {
+          opacity: 0.6;
+        }
+        75%,
+        95% {
+          transform: translateY(-135px);
+          opacity: 1;
+        }
+        97%,
+        98% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .Header-hero h1 {
+          font-size: 2.5rem;
+          letter-spacing: 0.5px;
+        }
+
+        .scrolling-text {
+          font-size: 1.4rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .Header-hero h1 {
+          font-size: 2rem;
+          white-space: normal; /* Change this from 'nowrap' to 'normal' */
+        }
+
+        .scrolling-text {
+          font-size: 1.2rem;
+        }
+
+        .Button {
+          font-size: 1rem;
+          padding: 0.8rem 1.6rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Full Mountain Image Section -->
     <div class="full-mountain-image">
       <div class="Header-content">
         <div class="Header-hero">
           <h1>AB Development & Design</h1>
         </div>
 
-        <!-- Scrolling Text -->
         <div class="scrolling-text">
           <span class="static-text">We</span>
           <div class="scrolling-text__container">
@@ -29,7 +256,6 @@
           <span class="static-text">with passion</span>
         </div>
 
-        <!-- Portfolio Button -->
         <a href="https://www.abdevndesign.com/portfolio" class="Button"
           >VIEW PORTFOLIO</a
         >
@@ -38,5 +264,61 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Check if WebGL is supported
+        function isWebGLSupported() {
+          try {
+            var canvas = document.createElement("canvas");
+            return !!(
+              window.WebGLRenderingContext &&
+              (canvas.getContext("webgl") ||
+                canvas.getContext("experimental-webgl"))
+            );
+          } catch (e) {
+            return false;
+          }
+        }
+
+        // Wait for all elements to load
+        $(window).on("load", function () {
+          try {
+            if (!isWebGLSupported()) {
+              console.log("WebGL is not supported in your browser.");
+              return;
+            }
+
+            // Initialize ripples with error handling
+            $(".full-mountain-image")
+              .ripples({
+                resolution: 512,
+                dropRadius: 20,
+                perturbance: 0.04,
+                interactive: true,
+                crossOrigin: "",
+              })
+              .on("error", function (e, err) {
+                console.error("Ripples error: ", err);
+              });
+
+            // Handle window resize
+            var resizeTimeout;
+            $(window).on("resize", function () {
+              clearTimeout(resizeTimeout);
+              resizeTimeout = setTimeout(function () {
+                try {
+                  $(".full-mountain-image").ripples("updateSize");
+                } catch (e) {
+                  console.error("Resize error: ", e);
+                }
+              }, 100);
+            });
+          } catch (e) {
+            console.error("Initialization error: ", e);
+          }
+        });
+      });
+    </script>
   </body>
 </html>

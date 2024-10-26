@@ -1,0 +1,38 @@
+<!-- Footer -->
+<footer class="footer">
+  <!-- Shooting stars background -->
+  <div class="bubbles">
+    <script>
+      for (let i = 0; i < 15; i++) {
+        const shootingStar = document.createElement("div");
+        shootingStar.className = "shooting-star";
+        shootingStar.style.setProperty("--startX", `${Math.random() * 100}%`);
+        shootingStar.style.setProperty("--startY", `${Math.random() * -50}px`);
+        shootingStar.style.setProperty(
+          "--time",
+          `${1.5 + Math.random() * 1.5}s`
+        );
+        shootingStar.style.setProperty("--delay", `${Math.random() * 5}s`);
+        document.querySelector(".bubbles").appendChild(shootingStar);
+      }
+    </script>
+  </div>
+
+  <!-- Footer content -->
+  <div class="content">
+    <h3>Stay Connected</h3>
+    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+    <div class="newsletter">
+      <input type="email" placeholder="Your email" required />
+      <button type="submit">Subscribe</button>
+    </div>
+    <div class="links">
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="pricingpackages.html">Pricing Packages</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+    <p>&copy; 2024 AB Dev N Trade. All rights reserved.</p>
+  </div>
+</footer>

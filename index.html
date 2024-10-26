@@ -1,15 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AB Dev N Design</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS if applicable -->
-</head>
-<body>
-    <h1>Welcome to asdf AB Dev N Design</h1>
-    
-    
-    <p>This is a dedicated page from GitHub Pages, embedded in Google Sites.</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AB Dev N Design - Google Sites Compatibility Test</title>
+    <style>
+      /* Test CSS animations */
+      .animated-box {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        animation: move 3s infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(50px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* Test flexbox and grid layout */
+      .flex-container {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 20px;
+      }
+
+      .grid-item {
+        background-color: #2ecc71;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      /* Test positioning */
+      .overlay {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+      }
+
+      .overlay img {
+        width: 100%;
+        height: auto;
+      }
+
+      .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Google Sites Compatibility Test - AB Dev N Design</h1>
+    <p>
+      This page includes various elements to test the limitations of Google
+      Sites' rendering capabilities.
+    </p>
+
+    <!-- Test HTML video and audio embedding -->
+    <h2>Media Embeds</h2>
+    <video controls width="320" height="240">
+      <source
+        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <audio controls>
+      <source
+        src="https://www.w3schools.com/html/horse.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Test CSS animation -->
+    <h2>CSS Animation</h2>
+    <div class="animated-box"></div>
+
+    <!-- Test Flexbox and Grid -->
+    <h2>Flexbox Layout</h2>
+    <div class="flex-container">
+      <div class="flex-item">Flex Item 1</div>
+      <div class="flex-item">Flex Item 2</div>
+      <div class="flex-item">Flex Item 3</div>
+    </div>
+
+    <h2>Grid Layout</h2>
+    <div class="grid-container">
+      <div class="grid-item">Grid Item 1</div>
+      <div class="grid-item">Grid Item 2</div>
+      <div class="grid-item">Grid Item 3</div>
+    </div>
+
+    <!-- Test Iframe Embed (YouTube and Google Maps) -->
+    <h2>Iframe Embeds</h2>
+    <iframe
+      width="320"
+      height="240"
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+      title="YouTube video"
+    ></iframe>
+
+    <iframe
+      width="320"
+      height="240"
+      src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Las+Vegas,NV"
+      allowfullscreen
+    ></iframe>
+
+    <!-- Test positioning -->
+    <h2>Image Overlay</h2>
+    <div class="overlay">
+      <img src="https://via.placeholder.com/300" alt="Placeholder" />
+      <div class="overlay-text">Overlay Text</div>
+    </div>
+
+    <!-- Test JavaScript Interactivity -->
+    <h2>JavaScript Button</h2>
+    <button onclick="showAlert()">Click Me</button>
+    <p id="js-output"></p>
+
+    <script>
+      function showAlert() {
+        document.getElementById("js-output").innerText =
+          "Button clicked! JavaScript is working.";
+      }
+    </script>
+  </body>
 </html>

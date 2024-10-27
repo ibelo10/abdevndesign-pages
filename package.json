@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "AB Development & Design website",
   "scripts": {
-    "dev": "npm run build",
-    "build": "echo Building project...",
-    "start": "echo Starting project..."
-  },
-  "devDependencies": {
-    "netlify-cli": "^17.0.0"
+    "start": "netlify dev",
+    "build": "echo No build needed"
   },
   "dependencies": {
     "@netlify/functions": "^2.0.0",
     "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "netlify-cli": "^17.0.0"
   }
 }

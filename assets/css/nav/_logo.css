@@ -1,0 +1,29 @@
+.logo-container {
+  margin-right: auto;
+  padding-right: 2rem;
+}
+
+.logo {
+  display: block;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 50px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    width: 40px;
+  }
+
+  .logo-container {
+    padding-right: 1rem;
+  }
+}

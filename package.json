@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "AB Development & Design website",
   "scripts": {
-    "dev": "netlify dev"
+    "dev": "npm run build",
+    "build": "echo Building project...",
+    "start": "echo Starting project..."
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
   },
   "dependencies": {
     "@netlify/functions": "^2.0.0",

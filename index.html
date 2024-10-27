@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section will be loaded dynamically -->
+    <div id="head-container"></div>
+    
+    <!-- Loader styles and error handling -->
+    <style>
+        .component-loading {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        .component-loaded {
+            opacity: 1;
+        }
+        .component-error {
+            padding: 1rem;
+            margin: 1rem;
+            border: 1px solid #ff0000;
+            border-radius: 4px;
+            text-align: center;
+            background-color: #fff5f5;
+        }
+        .component-error button {
+            padding: 0.5rem 1rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+
+    <body>
+        <!-- Navigation Menu -->
+        <div id="nav-container" class="component-loading"></div>
+        
+        <!-- Hero Section -->
+        <div id="hero-container" class="component-loading"></div>
+        
+        <!-- Portfolio Section -->
+        <div id="portfolio-container" class="component-loading"></div>
+        
+        <!-- Scripts Container -->
+        <div id="scripts-container"></div>
+
+        <!-- Core ComponentLoader script -->
+        <script>
+            // Error handling for script loading
+            window.handleScriptError = function(scriptSrc) {
+                console.error(`Failed to load script: ${scriptSrc}`);
+                // Attempt to reload failed script
+                setTimeout(() => {
+                    const script = document.createElement('script');
+                    script.src = scriptSrc;
+                    script.onerror = () => handleScriptError(scriptSrc);
+                    document.body.appendChild(script);
+                }, 2000); // Retry after 2 seconds
+            };
+        </script>
+        
+        <!-- Component Loader -->
+        <script src="/assets/js/component-loader.js" onerror="handleScriptError(this.src)"></script>
+        
+        <script>
+            // Initialize component loader when script is loaded
+            const initComponents = () => {
+                if (typeof ComponentLoader === 'undefined') {
+                    console.error('ComponentLoader not loaded yet, retrying...');
+                    setTimeout(initComponents, 100);
+                    return;
+                }
+
+                const loader = new ComponentLoader();
+                
+                // Add loading animation
+                loader.onComponentLoaded = (elementId) => {
+                    const element = document.getElementById(elementId);
+                    if (element) {
+                        element.classList.add('component-loaded');
+                    }
+                };
+
+                // Load scripts after components are loaded
+                loader.onAllComponentsLoaded = async () => {
+                    try {
+                        const scriptsResponse = await fetch('/includes/scripts.html');
+                        if (scriptsResponse.ok) {
+                            const scriptsHtml = await scriptsResponse.text();
+                            document.getElementById('scripts-container').innerHTML = scriptsHtml;
+                        }
+                    } catch (error) {
+                        console.error('Error loading scripts:', error);
+                    }
+                };
+
+                // Initialize components
+                loader.init().catch(error => {
+                    console.error('Error initializing components:', error);
+                });
+            };
+
+            // Start initialization when DOM is ready
+            document.addEventListener('DOMContentLoaded', initComponents);
+        </script>
+    </body>
+</html>

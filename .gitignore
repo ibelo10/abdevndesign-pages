@@ -1,7 +1,5 @@
-
-.vs/AB Dev N Design/FileContentIndex/54a36422-bdf7-416b-940c-01896246c700.vsidx
-.vs/AB Dev N Design/FileContentIndex/ea40b4ab-e7c6-47a4-9ef8-2ce4e6dd4c23.vsidx
-.vs/AB Dev N Design/v17/.wsuo
-.vs/AB Dev N Design/FileContentIndex/745216ef-17ec-4ca1-9dc1-9db7c464b2de.vsidx
-.vs/AB Dev N Design/FileContentIndex/f8acd446-876a-46c6-a0aa-7029bd171ab8.vsidx
-*.vsidx
+node_modules
+.env
+.netlify
+dist
+.DS_Store

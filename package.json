@@ -1,0 +1,12 @@
+{
+  "name": "ab-dev-design",
+  "version": "1.0.0",
+  "description": "AB Development & Design website",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.0.0",
+    "axios": "^1.6.0"
+  }
+}

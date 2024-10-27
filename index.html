@@ -30,8 +30,34 @@
         padding: 0;
         font-family: "Roboto", sans-serif;
         overflow-x: hidden;
-        background: #000;
         min-height: 100vh;
+      }
+
+      .full-mountain-image {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background: url("/assets/images/laptopdark.jpg") no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      /* Add overlay to ensure text readability */
+      .full-mountain-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+
+      /* Ensure all content appears above the overlay */
+      .full-mountain-image > * {
+        position: relative;
+        z-index: 2;
       }
 
       .corner-logo {
@@ -62,12 +88,123 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       }
 
+      /* Hero Section */
+      .Header-content {
+        padding: 2rem;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .Header-hero {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .hero-logo {
+        max-width: 120px;
+        height: auto;
+        margin-bottom: 2rem;
+      }
+
       .hero-title {
         font-size: clamp(2rem, 5vw, 3.5rem);
         font-weight: 800;
         color: white;
         margin: 1.5rem 0;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
+      }
+
+      /* Scrolling Text */
+      .scrolling-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .static-text {
+        color: white;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+      }
+
+      .scrolling-text__container {
+        height: 1.8em;
+        overflow: hidden;
+      }
+
+      .scrolling-text__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        animation: scroll 10s infinite;
+      }
+
+      .scrolling-text__item {
+        color: #64ffda;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        height: 1.8em;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Button Styles */
+      .Button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: linear-gradient(45deg, #64ffda, #48c6ef);
+        color: black;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 2rem;
+      }
+
+      .Button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+      }
+
+      /* Navigation Styles */
+      #menu {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 900;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .menu-item {
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .menu-text a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+      }
+
+      /* Mobile Navigation */
+      .mobile-menu-toggle {
+        display: none;
+        position: fixed;
+        top: 1.5rem;
+        right: 2rem;
+        z-index: 1001;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
       }
 
       .gradient-text {
@@ -87,30 +224,15 @@
         transform: translateY(-2px);
       }
 
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
+      /* Responsive Media Queries */
+      @media (max-width: 1024px) {
+        :root {
+          --menu-width: 100%;
         }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
 
-      /* Varying animation delays for each word */
-      .gradient-text:nth-child(1):hover {
-        animation-delay: 0s;
-      }
-      .gradient-text:nth-child(2):hover {
-        animation-delay: 0.1s;
-      }
-      .gradient-text:nth-child(3):hover {
-        animation-delay: 0.2s;
-      }
-      .gradient-text:nth-child(4):hover {
-        animation-delay: 0.3s;
+        .full-mountain-image {
+          background-attachment: scroll;
+        }
       }
 
       @media (max-width: 768px) {
@@ -126,23 +248,105 @@
         .corner-logo-text {
           font-size: 1rem;
         }
+
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        #menu {
+          display: none;
+          padding-top: 4rem;
+        }
+
+        #menu.active {
+          display: block;
+        }
+
+        .menu-item {
+          display: block;
+          width: 100%;
+        }
+
+        .Header-hero {
+          padding: 1rem;
+        }
+
+        .scrolling-text {
+          flex-direction: column;
+          gap: 0.25rem;
+        }
       }
 
       @media (max-width: 480px) {
         .corner-logo-text {
           display: none;
         }
+
+        .hero-title {
+          font-size: 1.8rem;
+        }
+
+        .Button {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+        }
+
+        .Header-content {
+          padding: 1rem;
+        }
+      }
+
+      /* Handle landscape orientation */
+      @media (max-height: 480px) and (orientation: landscape) {
+        .Header-content {
+          padding: 4rem 1rem 1rem;
+        }
+
+        .hero-logo {
+          max-width: 80px;
+          margin-bottom: 1rem;
+        }
+      }
+
+      /* Animation Keyframes */
+      @keyframes scroll {
+        0%,
+        25% {
+          transform: translateY(0);
+        }
+        30%,
+        50% {
+          transform: translateY(-1.8em);
+        }
+        55%,
+        75% {
+          transform: translateY(-3.6em);
+        }
+        80%,
+        100% {
+          transform: translateY(-5.4em);
+        }
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
     </style>
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-    <link rel="stylesheet" href="/assets/css/nav.css" />
-    <link rel="stylesheet" href="/assets/css/portfolio.css" />
-
-    <!-- jQuery (needed for ripple effect) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
   </head>
   <body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
     <!-- Corner Logo -->
     <a href="/" class="corner-logo">
       <img src="/assets/images/AB-logo.png" alt="AB Dev & Design" />
@@ -156,74 +360,15 @@
           <div class="menu-text">
             <a href="#">Home</a>
           </div>
-          <div class="sub-menu">
-            <div class="icon-box">
-              <div class="icon"><i class="fal fa-code"></i></div>
-              <div class="text">
-                <div class="title">
-                  Development <i class="far fa-arrow-right"></i>
-                </div>
-                <div class="sub-text">Crafting digital solutions.</div>
-              </div>
-            </div>
-            <div class="icon-box">
-              <div class="icon"><i class="fal fa-palette"></i></div>
-              <div class="text">
-                <div class="title">
-                  Design <i class="far fa-arrow-right"></i>
-                </div>
-                <div class="sub-text">Creating beautiful interfaces.</div>
-              </div>
-            </div>
-            <div class="sub-menu-holder"></div>
-          </div>
         </div>
         <div class="menu-item highlight">
           <div class="menu-text">
             <a href="#">Portfolio</a>
           </div>
-          <div class="sub-menu double">
-            <div class="icon-box gb a">
-              <div class="icon"><i class="far fa-browser"></i></div>
-              <div class="text">
-                <div class="title">
-                  Web Projects <i class="far fa-arrow-right"></i>
-                </div>
-                <div class="sub-text">Interactive Experiences</div>
-              </div>
-            </div>
-            <div class="icon-box gb b">
-              <div class="icon"><i class="far fa-pencil-paintbrush"></i></div>
-              <div class="text">
-                <div class="title">
-                  Design Work <i class="far fa-arrow-right"></i>
-                </div>
-                <div class="sub-text">Visual Aesthetics</div>
-              </div>
-            </div>
-            <div class="sub-menu-holder"></div>
-          </div>
         </div>
         <div class="menu-item">
           <div class="menu-text">
             <a href="#">Contact</a>
-          </div>
-          <div class="sub-menu">
-            <div class="icon-box">
-              <div class="icon"><i class="far fa-envelope"></i></div>
-              <div class="text">
-                <div class="title">
-                  Email Us <i class="far fa-arrow-right"></i>
-                </div>
-                <div class="sub-text">Get in touch for projects.</div>
-              </div>
-            </div>
-            <div class="sub-menu-holder"></div>
-          </div>
-        </div>
-        <div id="sub-menu-container">
-          <div id="sub-menu-holder">
-            <div id="sub-menu-bottom"></div>
           </div>
         </div>
       </nav>
@@ -263,10 +408,23 @@
       </div>
     </div>
 
-    <!-- Component loader -->
-    <script src="/assets/js/component-loader.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector(".mobile-menu-toggle");
+        const menu = document.querySelector("#menu");
+
+        menuToggle.addEventListener("click", () => {
+          menu.classList.toggle("active");
+          menuToggle.innerHTML = menu.classList.contains("active")
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>';
+        });
+
         // Initialize ripple effect
         try {
           $(".full-mountain-image").ripples({
@@ -277,6 +435,14 @@
         } catch (e) {
           console.error(e);
         }
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            menu.classList.remove("active");
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        });
       });
     </script>
   </body>

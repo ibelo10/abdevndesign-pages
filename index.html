@@ -33,6 +33,106 @@
         background: #000;
         min-height: 100vh;
       }
+
+      .corner-logo {
+        position: fixed;
+        top: 1.5rem;
+        left: 2rem;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .corner-logo img {
+        width: 40px;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      .corner-logo:hover img {
+        transform: scale(1.1);
+      }
+
+      .corner-logo-text {
+        color: white;
+        margin-left: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        color: white;
+        margin: 1.5rem 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .gradient-text {
+        display: inline-block;
+        padding: 0 0.2em;
+        transition: all 0.3s ease;
+      }
+
+      .gradient-text:hover {
+        color: transparent;
+        background: linear-gradient(45deg, #64ffda, #48c6ef, #6f86d6, #64ffda);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: gradient 3s ease infinite;
+        cursor: pointer;
+        transform: translateY(-2px);
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Varying animation delays for each word */
+      .gradient-text:nth-child(1):hover {
+        animation-delay: 0s;
+      }
+      .gradient-text:nth-child(2):hover {
+        animation-delay: 0.1s;
+      }
+      .gradient-text:nth-child(3):hover {
+        animation-delay: 0.2s;
+      }
+      .gradient-text:nth-child(4):hover {
+        animation-delay: 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        .corner-logo {
+          top: 1rem;
+          left: 1rem;
+        }
+
+        .corner-logo img {
+          width: 32px;
+        }
+
+        .corner-logo-text {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .corner-logo-text {
+          display: none;
+        }
+      }
     </style>
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/assets/css/nav.css" />
@@ -43,6 +143,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
   </head>
   <body>
+    <!-- Corner Logo -->
+    <a href="/" class="corner-logo">
+      <img src="/assets/images/AB-logo.png" alt="AB Dev & Design" />
+      <span class="corner-logo-text">AB Development & Design</span>
+    </a>
+
     <div class="full-mountain-image">
       <!-- Navigation -->
       <nav id="menu">
@@ -130,6 +236,12 @@
             alt="AB Development & Design"
             class="hero-logo"
           />
+          <h1 class="hero-title">
+            <span class="gradient-text">AB</span>
+            <span class="gradient-text">Development</span>
+            <span class="gradient-text">&</span>
+            <span class="gradient-text">Design</span>
+          </h1>
 
           <div class="scrolling-text">
             <span class="static-text">We</span>

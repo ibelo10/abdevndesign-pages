@@ -1,0 +1,76 @@
+﻿/* Scrolling Text Animations */
+.scrolling-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  height: 1.8em;
+}
+
+.static-text {
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.scrolling-text__container {
+  height: 1.8em;
+  overflow: hidden;
+}
+
+.scrolling-text__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: scroll 10s infinite;
+  transform-origin: top;
+}
+
+.scrolling-text__item {
+  color: #64ffda;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  height: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-1.8em);
+  }
+  50% {
+    transform: translateY(-1.8em);
+  }
+  55% {
+    transform: translateY(-3.6em);
+  }
+  75% {
+    transform: translateY(-3.6em);
+  }
+  80% {
+    transform: translateY(-5.4em);
+  }
+  100% {
+    transform: translateY(-5.4em);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

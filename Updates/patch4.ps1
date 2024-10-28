@@ -1,4 +1,37 @@
-﻿<!DOCTYPE html>
+# Patch 4 script for AB Development & Design website - Index Update
+Write-Host "Applying Index HTML Update patch..." -ForegroundColor Cyan
+
+# Function to create or update file
+function Set-SafeFile {
+    param(
+        [string]$Path,
+        [string]$Content,
+        [string]$Description,
+        [bool]$Overwrite = $false
+    )
+    
+    $exists = Test-Path $Path
+    if (!$exists -or $Overwrite) {
+        Set-Content -Path $Path -Value $Content -Encoding UTF8
+        if ($exists) {
+            Write-Host "Updated $Description" -ForegroundColor Blue
+        } else {
+            Write-Host "Created $Description" -ForegroundColor Green
+        }
+        return $true
+    }
+    Write-Host "$Description exists - skipped" -ForegroundColor Yellow
+    return $false
+}
+
+# Log patch start
+$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$patchLog = "patch_log.txt"
+Add-Content -Path $patchLog -Value "`n[$timestamp] Starting Index HTML Update patch..."
+
+# Updated index.html content
+$indexContent = @"
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -122,3 +155,29 @@
     <script src="/assets/js/components/scroll.js"></script>
   </body>
 </html>
+"@
+
+# Create or update index.html
+Set-SafeFile -Path "public/index.html" -Content $indexContent -Description "index.html" -Overwrite $true
+Add-Content -Path $patchLog -Value "Updated index.html with modular structure"
+
+# Update patch log
+$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+Add-Content -Path $patchLog -Value "[$timestamp] Index HTML Update patch completed"
+
+Write-Host "`nPatch 4 applied successfully!" -ForegroundColor Green
+Write-Host "`nChanges made:" -ForegroundColor Yellow
+Write-Host "1. Updated index.html with:"
+Write-Host "   - Modular CSS imports"
+Write-Host "   - Modular JavaScript imports"
+Write-Host "   - Section placeholders for future content"
+Write-Host "   - Updated navigation structure"
+Write-Host "`nCheck patch_log.txt for details of changes made."
+
+Write-Host "`nNext steps:" -ForegroundColor Yellow
+Write-Host "1. Verify all styles are loading correctly"
+Write-Host "2. Test JavaScript functionality"
+Write-Host "3. Begin implementing content for services, portfolio, and contact sections"
+
+Write-Host "`nPress any key to continue..."
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

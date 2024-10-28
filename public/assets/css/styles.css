@@ -1,1 +1,88 @@
- 
+﻿:root {
+  --menu-width: 37.5em;
+  --items: 3;
+  --item-width: calc(var(--menu-width) / var(--items));
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.full-mountain-image {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url('/assets/images/laptopdark.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.full-mountain-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.full-mountain-image > * {
+  position: relative;
+  z-index: 2;
+}
+
+.Button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #64ffda, #48c6ef);
+  color: black;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.Button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .full-mountain-image {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .Header-hero {
+    padding: 1rem;
+  }
+
+  .scrolling-text {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .Button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .Header-content {
+    padding: 1rem;
+  }
+}

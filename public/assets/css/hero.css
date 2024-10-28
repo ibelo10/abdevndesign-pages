@@ -1,0 +1,95 @@
+﻿.corner-logo {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.corner-logo img {
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.corner-logo:hover img {
+  transform: scale(1.1);
+}
+
+.corner-logo-text {
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.Header-content {
+  padding: 2rem;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-logo {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: white;
+  margin: 1.5rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.gradient-text {
+  display: inline-block;
+  padding: 0 0.2em;
+  transition: all 0.3s ease;
+}
+
+.gradient-text:hover {
+  color: transparent;
+  background: linear-gradient(45deg, #64ffda, #48c6ef, #6f86d6, #64ffda);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient 3s ease infinite;
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .corner-logo {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .corner-logo img {
+    width: 32px;
+  }
+
+  .corner-logo-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .corner-logo-text {
+    display: none;
+  }
+}

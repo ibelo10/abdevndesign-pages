@@ -1,1 +1,71 @@
- 
+﻿<section id="portfolio" class="portfolio-section">
+    <div class="portfolio-container">
+        <h2 class="portfolio-title">Our Work</h2>
+        <p class="portfolio-subtitle">Showcasing our latest projects and creations</p>
+
+        <!-- Portfolio Filters -->
+        <div class="portfolio-filters">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="web">Web Development</button>
+            <button class="filter-button" data-filter="design">UI/UX Design</button>
+            <button class="filter-button" data-filter="mobile">Mobile Apps</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <!-- Portfolio Item 1 -->
+            <div class="portfolio-item" data-category="web">
+                <img src="/assets/images/portfolio/project1.jpg" alt="Project 1" class="portfolio-item-image">
+                <div class="portfolio-item-overlay">
+                    <h3 class="portfolio-item-title">E-Commerce Platform</h3>
+                    <p class="portfolio-item-category">Web Development</p>
+                    <div class="portfolio-item-links">
+                        <a href="#" class="portfolio-link">View Details</a>
+                        <a href="#" class="portfolio-link">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 2 -->
+            <div class="portfolio-item" data-category="design">
+                <img src="/assets/images/portfolio/project2.jpg" alt="Project 2" class="portfolio-item-image">
+                <div class="portfolio-item-overlay">
+                    <h3 class="portfolio-item-title">Mobile App UI</h3>
+                    <p class="portfolio-item-category">UI/UX Design</p>
+                    <div class="portfolio-item-links">
+                        <a href="#" class="portfolio-link">View Details</a>
+                        <a href="#" class="portfolio-link">Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 3 -->
+            <div class="portfolio-item" data-category="mobile">
+                <img src="/assets/images/portfolio/project3.jpg" alt="Project 3" class="portfolio-item-image">
+                <div class="portfolio-item-overlay">
+                    <h3 class="portfolio-item-title">Fitness Tracker App</h3>
+                    <p class="portfolio-item-category">Mobile Development</p>
+                    <div class="portfolio-item-links">
+                        <a href="#" class="portfolio-link">View Details</a>
+                        <a href="#" class="portfolio-link">App Store</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal Template -->
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img src="" alt="" class="modal-image">
+            <h3 class="modal-title"></h3>
+            <div class="modal-description"></div>
+            <div class="modal-tech-stack"></div>
+            <div class="portfolio-item-links">
+                <a href="#" class="portfolio-link">Live Demo</a>
+                <a href="#" class="portfolio-link">Source Code</a>
+            </div>
+        </div>
+    </div>
+</section>
